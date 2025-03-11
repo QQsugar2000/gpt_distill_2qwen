@@ -1,0 +1,2 @@
+# gpt_distill_2qwen
+采用gpt等闭源高质量模型生成数据并微调qwen模型实战
