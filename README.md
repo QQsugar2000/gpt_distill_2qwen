@@ -51,28 +51,28 @@ python train.py  --train_data data/processed_responses.json --output_dir checkpo
 
 ---
 输入参数说明
---cuda_devices：CUDA设备ID，默认值为 0。用于指定要使用的CUDA设备。
---model_id_or_path：模型的路径或ID，必填项。指定你要使用的模型路径或ID。
---system：系统Prompt，默认值为 You are a helpful assistant.。用于大模型生成数据时的系统Prompt。
---output_dir：输出目录，默认值为 checkpoint。模型训练过程中的输出将保存在此目录。
+- --cuda_devices：CUDA设备ID，默认值为 0。用于指定要使用的CUDA设备。
+- --model_id_or_path：模型的路径或ID，必填项。指定你要使用的模型路径或ID。
+- --system：系统Prompt，默认值为 You are a helpful assistant.。用于大模型生成数据时的系统Prompt。
+- --output_dir：输出目录，默认值为 checkpoint。模型训练过程中的输出将保存在此目录。
 数据集相关配置
---dataset：数据集路径，必填项。指定训练使用的数据集路径。
---data_seed：数据划分的随机种子，默认值为 42。用于控制数据集划分时的随机性。
---max_length：最大token长度，默认值为 2048。指定模型输入的最大token长度。
---split_dataset_ratio：验证集的划分比例，默认值为 0.01。用于划分训练集与验证集的比例。
---num_proc：数据加载时的进程数，默认值为 4。指定数据加载时使用的并行进程数。
+- --dataset：数据集路径，必填项。指定训练使用的数据集路径。
+- --data_seed：数据划分的随机种子，默认值为 42。用于控制数据集划分时的随机性。
+- --max_length：最大token长度，默认值为 2048。指定模型输入的最大token长度。
+- --split_dataset_ratio：验证集的划分比例，默认值为 0.01。用于划分训练集与验证集的比例。
+- --num_proc：数据加载时的进程数，默认值为 4。指定数据加载时使用的并行进程数。
 模型名称和作者
---model_name：模型的中文和英文名称，默认值为 ['小黄', 'Xiao Huang']。指定模型的名称。
---model_author：模型的中文和英文作者，默认值为 ['魔搭', 'ModelScope']。指定模型的作者名称。
+- --model_name：模型的中文和英文名称，默认值为 ['小黄', 'Xiao Huang']。指定模型的名称。
+- --model_author：模型的中文和英文作者，默认值为 ['魔搭', 'ModelScope']。指定模型的作者名称。
 LoRA配置
---lora_rank：LoRA的秩，默认值为 8。指定LoRA的秩。
---lora_alpha：LoRA的alpha值，默认值为 32。指定LoRA的alpha值。
+- --lora_rank：LoRA的秩，默认值为 8。指定LoRA的秩。
+- --lora_alpha：LoRA的alpha值，默认值为 32。指定LoRA的alpha值。
 训练相关配置
---learning_rate：训练时的学习率，默认值为 1e-4。指定优化器的学习率。
---per_device_train_batch_size：每个设备的训练批量大小，默认值为 1。设置每个设备的训练批量大小。
---per_device_eval_batch_size：每个设备的评估批量大小，默认值为 1。设置每个设备的评估批量大小。
---gradient_accumulation_steps：梯度累积的步数，默认值为 16。指定梯度累积的步数。
---num_train_epochs：训练的总周期数，默认值为 5。设置训练的总周期数。
+- --learning_rate：训练时的学习率，默认值为 1e-4。指定优化器的学习率。
+- --per_device_train_batch_size：每个设备的训练批量大小，默认值为 1。设置每个设备的训练批量大小。
+- --per_device_eval_batch_size：每个设备的评估批量大小，默认值为 1。设置每个设备的评估批量大小。
+- --gradient_accumulation_steps：梯度累积的步数，默认值为 16。指定梯度累积的步数。
+- --num_train_epochs：训练的总周期数，默认值为 5。设置训练的总周期数。
 # prompt编写指南
 ### 1. prompt编写原则
 - **简洁明了**：prompt应该简洁明了，避免冗余信息。
