@@ -10,9 +10,8 @@
 克隆本仓库后，进入项目文件夹并按照以下步骤操作：
 
 1. 配置Prompt数据和API。
-2. 运行 `generate_data` 生成数据。
-3. 运行 `process_all_image` 处理数据。
-4. 最后运行 `training2` 进行模型微调。
+2. 运行 `process_all_image` 处理数据。
+3. 最后运行 `training.py` 进行模型微调。
 
 ### 配置Prompt数据和API
 
@@ -50,8 +49,9 @@ python train.py  --model_id_or_path Qwen/Qwen2.5-VL-7B-Instruct --dataset data/s
 ```
 
 ---
-必填的是model_id_or_path和dataset，一个是模型类型，一个是数据集路径，其他参数可自行修改。
-输入参数说明
+必填的是`model_id_or_path`和`dataset`，一个是模型类型，一个是数据集路径，其他参数可自行修改。
+
+#### 输入参数说明
 - --`cuda_devices`：CUDA设备ID，默认值为 0。用于指定要使用的CUDA设备。
 - --`model_id_or_path`：模型的路径或ID，必填项。指定你要使用的模型路径或ID。
 - --`system`：系统Prompt，默认值为 You are a helpful assistant.。用于大模型生成数据时的系统Prompt。
