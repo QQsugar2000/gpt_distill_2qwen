@@ -45,7 +45,9 @@ python process_all_image.py --image_folder_path data/image
 使用以下命令来微调模型：
 
 ```bash
-python train.py  --model_id_or_path Qwen/Qwen2.5-VL-7B-Instruct --dataset data/sft_data.json --output_dir checkpoints --num_epochs 5 --batch_size 1
+python train.py  --model_id_or_path Qwen/Qwen2.5-VL-7B-Instruct 
+                --dataset data/sft_data.json 
+                --output_dir checkpoints --num_epochs 5 --batch_size 1
 ```
 
 ---
