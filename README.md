@@ -31,7 +31,9 @@
 运行以下命令来生成数据：
 
 ```bash
-python process_all_image.py --image_folder_path data/image --output_json_path data/responses.json --max_retries 3
+python process_all_image.py --image_folder_path data/image 
+                            --output_json_path data/responses.json 
+                            --max_retries 3
 ```
 说明:
 可修改参数如下
@@ -39,39 +41,43 @@ python process_all_image.py --image_folder_path data/image --output_json_path da
 - `--output_json_path`：生成的JSON数据保存路径。
 - `max_retries`: （选填）由于gpt api不一定稳定，生成数据过程中如果一旦网络波动就会失败，所以需要指定每条数据生成重试次数，默认为3次。
 
-### 数据处理
-
-运行以下命令来处理数据：（样例）
-
-```bash
-python script_name.py --process_all_image --input_json data/responses.json --output_json data/processed_responses.json
-```
-
 ### 微调模型
 
 使用以下命令来微调模型：
 
 ```bash
-python script_name.py --training2 --train_data data/processed_responses.json --output_dir checkpoints --num_epochs 5 --batch_size 1
+python train.py  --train_data data/processed_responses.json --output_dir checkpoints --num_epochs 5 --batch_size 1
 ```
 
 ---
-
-
-- `--max_retries`：请求失败时最大重试次数。
-- `--input_json`：输入的未处理JSON数据路径。
-- `--output_json`：处理后的JSON数据保存路径。
-- `--train_data`：用于微调的训练数据路径。
-- `--output_dir`：微调模型输出路径。
-- `--num_epochs`：微调训练的周期数。
-- `--batch_size`：训练时的批量大小。
+输入参数说明
+--cuda_devices：CUDA设备ID，默认值为 0。用于指定要使用的CUDA设备。
+--model_id_or_path：模型的路径或ID，必填项。指定你要使用的模型路径或ID。
+--system：系统Prompt，默认值为 You are a helpful assistant.。用于大模型生成数据时的系统Prompt。
+--output_dir：输出目录，默认值为 checkpoint。模型训练过程中的输出将保存在此目录。
+数据集相关配置
+--dataset：数据集路径，必填项。指定训练使用的数据集路径。
+--data_seed：数据划分的随机种子，默认值为 42。用于控制数据集划分时的随机性。
+--max_length：最大token长度，默认值为 2048。指定模型输入的最大token长度。
+--split_dataset_ratio：验证集的划分比例，默认值为 0.01。用于划分训练集与验证集的比例。
+--num_proc：数据加载时的进程数，默认值为 4。指定数据加载时使用的并行进程数。
+模型名称和作者
+--model_name：模型的中文和英文名称，默认值为 ['小黄', 'Xiao Huang']。指定模型的名称。
+--model_author：模型的中文和英文作者，默认值为 ['魔搭', 'ModelScope']。指定模型的作者名称。
+LoRA配置
+--lora_rank：LoRA的秩，默认值为 8。指定LoRA的秩。
+--lora_alpha：LoRA的alpha值，默认值为 32。指定LoRA的alpha值。
+训练相关配置
+--learning_rate：训练时的学习率，默认值为 1e-4。指定优化器的学习率。
+--per_device_train_batch_size：每个设备的训练批量大小，默认值为 1。设置每个设备的训练批量大小。
+--per_device_eval_batch_size：每个设备的评估批量大小，默认值为 1。设置每个设备的评估批量大小。
+--gradient_accumulation_steps：梯度累积的步数，默认值为 16。指定梯度累积的步数。
+--num_train_epochs：训练的总周期数，默认值为 5。设置训练的总周期数。
 # prompt编写指南
 ### 1. prompt编写原则
 - **简洁明了**：prompt应该简洁明了，避免冗余信息。
-- **明确意图**：prompt应该明确表达用户的意图，避免歧义。
-- **具体描述**：prompt应该具体描述用户希望得到的信息，避免模糊不清。
-- **避免主观判断**：prompt应该避免主观判断，避免引导用户产生偏见。
-- **避免负面情绪**：prompt应该避免负面情绪，避免引导用户产生负面情绪。
+- **明确意图**：明确表达用户的意图，避免歧义。
+- **具体描述**：具体描述用户希望得到的信息，避免模糊不清。
 
 ### 2. prompt编写技巧
 - **使用引导词**：在prompt中使用引导词，如“请”，“告诉我”，“帮我”等，可以引导用户按照你的期望进行回答。
