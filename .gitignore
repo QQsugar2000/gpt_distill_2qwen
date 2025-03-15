@@ -1,0 +1,11 @@
+# 忽略 Python 编译文件
+__pycache__/
+*.pyc
+
+# 忽略 VSCode 设置文件
+.vscode/
+
+# 忽略虚拟环境
+venv/
+
+#
