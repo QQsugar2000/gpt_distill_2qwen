@@ -30,9 +30,10 @@
 运行以下命令来生成数据：
 
 ```bash
-python process_all_image.py --image_folder_path data/image 
-                            --output_json_path data/responses.json 
-                            --max_retries 3
+python process_all_image.py \
+  --image_folder_path data/image \
+  --output_json_path data/responses.json \
+  --max_retries 3
 ```
 说明:
 可修改参数如下
@@ -45,9 +46,13 @@ python process_all_image.py --image_folder_path data/image
 使用以下命令来微调模型：
 
 ```bash
-python train.py  --model_id_or_path Qwen/Qwen2.5-VL-7B-Instruct 
-                --dataset data/sft_data.json 
-                --output_dir checkpoints --num_epochs 5 --batch_size 1
+python train.py \
+  --model_id_or_path Qwen/Qwen2.5-VL-7B-Instruct \
+  --dataset data/sft_data.json \
+  --output_dir checkpoints \
+  --num_train_epochs 5 \
+  --split_dataset_ratio 0.8
+
 ```
 
 ---
