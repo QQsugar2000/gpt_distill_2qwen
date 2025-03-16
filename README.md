@@ -11,7 +11,7 @@
 pip install ms-swift -U
 pip install qwen-vl-utils==0.0.8
 ```
-运行过程中遇到部分模型需要的包，请自行安装。
+运行过程中遇到部分模型需要的包，请自行安装。另外cuda和cudnn等配置这里不再赘述。
 
 # 使用方法
 
