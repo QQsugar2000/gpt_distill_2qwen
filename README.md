@@ -31,14 +31,14 @@
 
 ```bash
 python process_all_image.py \
-  --image_folder_path data/image \
-  --output_json_path data/responses.json \
+  --image_folder data/image \
+  --output_json data/responses.json \
   --max_retries 3
 ```
 说明:
 可修改参数如下
-- `--image_folder_path`：指定图像数据的文件夹路径。你可以在里面放入图像文件，只要能够配合你上一步配置的prompt生成数据即可。
-- `--output_json_path`：生成的JSON数据保存路径。
+- `--image_folder`：指定图像数据的文件夹路径。你可以在里面放入图像文件，只要能够配合你上一步配置的prompt生成数据即可。
+- `--output_json`：生成的JSON数据保存路径。
 - `max_retries`: （选填）由于gpt api不一定稳定，生成数据过程中如果一旦网络波动就会失败，所以需要指定每条数据生成重试次数，默认为3次。
 
 ### 微调模型

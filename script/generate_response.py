@@ -1,5 +1,5 @@
-from config.prompt import prompt
-from config.api_config import base_url, api_key
+from script.config.prompt import prompt
+from script.config.api_config import base_url, api_key
 from openai import OpenAI
 import base64
 import os
