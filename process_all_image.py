@@ -16,7 +16,7 @@ def generate_responses(image_folder_path, output_json_path, max_retries=2):
     """
     
     # 读取文件夹中的所有图片
-    image_files = [f for f in os.listdir(image_folder_path) if f.endswith('.png')]
+    image_files = [f for f in os.listdir(image_folder_path)]
 
     # 存储生成的所有响应
     responses = []
@@ -42,7 +42,7 @@ def generate_responses(image_folder_path, output_json_path, max_retries=2):
                         },
                         {
                             "role": "user",
-                            "content": prompt  # prompt 是用户传入的大模型指令
+                            "content": '<|vision_start|>'+image_path+'|vision_end|>'+prompt  # prompt 是用户传入的大模型指令
                         },
                         {
                             "role": "assistant",

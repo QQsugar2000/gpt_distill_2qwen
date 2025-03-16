@@ -1,0 +1,4 @@
+[
+    {"messages": [{"role": "user", "content": "图片里有什么： <|vision_start|>data/image/2.jpg<|vision_end|>"}, {"role": "assistant", "content": "一只橘猫坐在小电视上"}]},
+    {"messages": [{"role": "user", "content": "图片里有什么: <|vision_start|>data/image/2.jpg<|vision_end|>"}, {"role": "assistant", "content": "一个人坐在桌边，有吃的"}]}
+    ]
