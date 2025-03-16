@@ -26,12 +26,16 @@ pip install qwen-vl-utils==0.0.8
 1. **配置Prompt**  
    - 在 `script/config/prompt.py` 中配置两个Prompt：
      - **系统Prompt (`system_prompt`，选填)**：用于配置大模型生成数据时使用的系统Prompt，例如：“你是一个XX助手”。
-     - **用户Prompt**：直接发送给大模型的Prompt，默认只需配置此项。
+     - **用户Prompt**：直接发送给大模型的Prompt，默认只需配置此项。示例prompt是对UI图片的功能理解。
    
 2. **配置API**  
    - 在 `script/config/api.py` 中配置大模型API的URL和Key：
      - 如果使用官方的GPT API，URL无需修改。
      - 如果使用转发API，请根据转发接口填写相关信息。
+
+3. **放置图片数据集**  
+   - 在 `data/image` 中放入你的图片数据：
+     - 示例数据集是一些UI图片，请根据你的任务和prompt做修改。
 
 ### 生成数据
 
