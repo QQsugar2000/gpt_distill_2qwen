@@ -50,7 +50,7 @@ python train.py \
   --model_id_or_path Qwen/Qwen2.5-VL-7B-Instruct \
   --dataset data/sft_data.json \
   --output_dir checkpoints \
-  --num_train_epochs 5 \
+  --num_train_epochs 10 \
   --split_dataset_ratio 0.8
 
 ```
@@ -81,6 +81,20 @@ LoRA配置
 - --`per_device_eval_batch_size`：每个设备的评估批量大小，默认值为 1。设置每个设备的评估批量大小。
 - --`gradient_accumulation_steps`：梯度累积的步数，默认值为 16。指定梯度累积的步数。
 - --`num_train_epochs`：训练的总周期数，默认值为 5。设置训练的总周期数。
+
+### 推理测试
+推理之前，你可能需要修改推理使用的prompt，在`script/config/infer_request.py`中配置，之后运行`inference.py`即可。
+```
+python run_infer.py \
+  --model_path Qwen/Qwen2.5-VL-7B-Instruct \
+  --checkpoint_path checkpoints \
+  --cuda_device 0 \
+  ```
+#### 输入参数说明
+- --`model_path`：模型的路径或ID，必填项。指定你要使用的模型路径或ID。
+- --`checkpoint_path`：训练后的checkpoints保存目录，必填项。
+- --`cuda_device`：使用的GPU设备，默认值为 0。指定使用的GPU设备。
+
 # prompt编写指南
 ### 1. prompt编写原则
 - **简洁明了**：prompt应该简洁明了，避免冗余信息。
